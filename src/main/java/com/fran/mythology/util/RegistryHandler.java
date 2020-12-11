@@ -5,8 +5,10 @@ import com.fran.mythology.blocks.BlockItemBase;
 import com.fran.mythology.blocks.SilverBlock;
 import com.fran.mythology.blocks.SilverOre;
 import com.fran.mythology.items.ItemBase;
+import com.fran.mythology.tools.MythItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -28,6 +30,11 @@ public class RegistryHandler {
     public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot", ItemBase::new);
     public static final RegistryObject<Item> SILVER_DUST = ITEMS.register("silver_dust", ItemBase::new);
     public static final RegistryObject<Item> SILVER_NUGGET = ITEMS.register("silver_nugget", ItemBase::new);
+
+
+    // Tools
+    public static final RegistryObject<SwordItem> SILVER_SWORD = ITEMS.register("silver_sword", () ->
+            new SwordItem(MythItemTier.SILVER, 6, -2.8F, new Item.Properties().group(MythMod.TAB) ));
 
 
     // Blocks
