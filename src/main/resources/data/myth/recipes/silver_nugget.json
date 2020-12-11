@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "myth:silver_ingot"
+    }
+  ],
+  "result":
+  {
+    "item": "myth:silver_nugget",
+    "count": 1
+  }
+}

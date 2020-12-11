@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "myth:silver_block"
+    }
+  ],
+  "result":
+  {
+    "item": "myth:silver_ingot",
+    "count": 9
+  }
+}

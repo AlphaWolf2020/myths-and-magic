@@ -1,3 +1,8 @@
 {
-  "item.myth.silver_ingot": "Silver Ingot"
+  "item.myth.silver_ingot": "Silver Ingot",
+  "item.myth.silver_dust": "Silver Dust",
+  "item.myth.silver_nugget": "Silver Nugget",
+  "block.myth.silver_block": "Block of Silver",
+  "block.myth.silver_ore": "Silver Ore",
+  "itemGroup.mythsTab": "Myths and Magic"
 }
