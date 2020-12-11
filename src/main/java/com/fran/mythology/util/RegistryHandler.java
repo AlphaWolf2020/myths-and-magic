@@ -34,8 +34,9 @@ public class RegistryHandler {
 
     // Tools
     public static final RegistryObject<SwordItem> SILVER_SWORD = ITEMS.register("silver_sword", () ->
-            new SwordItem(MythItemTier.SILVER, 6, -2.8F, new Item.Properties().group(MythMod.TAB) ));
-
+            new SwordItem(MythItemTier.SILVER, 6, -2.8F, new Item.Properties().group(MythMod.TAB)));
+    public static final RegistryObject<SwordItem> SILVER_PICKAXE = ITEMS.register("silver_pickaxe", () ->
+            new SwordItem(MythItemTier.SILVER, 6, -1.5F, new Item.Properties().group(MythMod.TAB)));
 
     // Blocks
     public static final RegistryObject<Block> SILVER_BLOCK = BLOCKS.register("silver_block", SilverBlock::new);
