@@ -4,4 +4,4 @@ Explore the world of Myths and Legends come to life! Choose your Pantheon! Greek
 
 **Download**
 
-https://www.github.com/AlphaWolf2020/mod/releases/latest
+https://www.github.com/AlphaWolf2020/Legends-of-Old-myths-and-magic/releases/latest
