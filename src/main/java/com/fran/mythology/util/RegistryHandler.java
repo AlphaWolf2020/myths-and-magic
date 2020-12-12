@@ -1,14 +1,15 @@
 package com.fran.mythology.util;
 
 import com.fran.mythology.MythMod;
+import com.fran.mythology.armor.MythArmorMaterial;
 import com.fran.mythology.blocks.BlockItemBase;
 import com.fran.mythology.blocks.SilverBlock;
 import com.fran.mythology.blocks.SilverOre;
 import com.fran.mythology.items.ItemBase;
 import com.fran.mythology.tools.MythItemTier;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -35,8 +36,32 @@ public class RegistryHandler {
     // Tools
     public static final RegistryObject<SwordItem> SILVER_SWORD = ITEMS.register("silver_sword", () ->
             new SwordItem(MythItemTier.SILVER, 6, -2.8F, new Item.Properties().group(MythMod.TAB)));
-    public static final RegistryObject<SwordItem> SILVER_PICKAXE = ITEMS.register("silver_pickaxe", () ->
-            new SwordItem(MythItemTier.SILVER, 6, -1.5F, new Item.Properties().group(MythMod.TAB)));
+
+    public static final RegistryObject<PickaxeItem> SILVER_PICKAXE = ITEMS.register("silver_pickaxe", () ->
+            new PickaxeItem(MythItemTier.SILVER, 2, -1.4F, new Item.Properties().group(MythMod.TAB)));
+
+    public static final RegistryObject<AxeItem> SILVER_AXE = ITEMS.register("silver_axe", () ->
+            new AxeItem(MythItemTier.SILVER, 8, -1.8F, new Item.Properties().group(MythMod.TAB)));
+
+    public static final RegistryObject<ShovelItem> SILVER_SHOVEL = ITEMS.register("silver_shovel", () ->
+            new ShovelItem(MythItemTier.SILVER, 1, -1.4F, new Item.Properties().group(MythMod.TAB)));
+
+    public static final RegistryObject<HoeItem> SILVER_HOE = ITEMS.register("silver_hoe", () ->
+            new HoeItem(MythItemTier.SILVER, 1, -1.4F, new Item.Properties().group(MythMod.TAB)));
+
+    // Armour / Armor
+
+    public static final RegistryObject<ArmorItem> SILVER_HELMET = ITEMS.register("silver_helmet",
+            () -> new ArmorItem(MythArmorMaterial.SILVER, EquipmentSlotType.HEAD, new Item.Properties().group(MythMod.TAB)));
+
+    public static final RegistryObject<ArmorItem> SILVER_CHESTPLATE = ITEMS.register("silver_chestplate",
+            () -> new ArmorItem(MythArmorMaterial.SILVER, EquipmentSlotType.CHEST, new Item.Properties().group(MythMod.TAB)));
+
+    public static final RegistryObject<ArmorItem> SILVER_LEGGINGS = ITEMS.register("silver_leggings",
+            () -> new ArmorItem(MythArmorMaterial.SILVER, EquipmentSlotType.LEGS, new Item.Properties().group(MythMod.TAB)));
+
+    public static final RegistryObject<ArmorItem> SILVER_BOOTS = ITEMS.register("silver_boots",
+            () -> new ArmorItem(MythArmorMaterial.SILVER, EquipmentSlotType.FEET, new Item.Properties().group(MythMod.TAB)));
 
     // Blocks
     public static final RegistryObject<Block> SILVER_BLOCK = BLOCKS.register("silver_block", SilverBlock::new);

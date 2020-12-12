@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "x x",
+    "x x"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "myth:silver_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "myth:silver_boots",
+    "count": 1
+  }
+}
