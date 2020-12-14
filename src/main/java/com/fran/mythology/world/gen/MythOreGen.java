@@ -1,58 +1,40 @@
 package com.fran.mythology.world.gen;
 
 import com.fran.mythology.MythMod;
-import com.fran.mythology.util.RegistryHandler;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.Items;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
-import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.placement.TopSolidRangeConfig;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = MythMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class MythOreGen {
-    public static void AddSilverOre(Biome biome) {
 
-        //Copied from Vanilla Coal Ore Generation
-        biome.getGenerationSettings().
-        biome.generateFeatures(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, RegistryHandler.SILVER_ORE.get().getDefaultState(), 17)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(0, 0, 10))));
+    private static final ArrayList<Biome.Category> nonOverworldBiomes = new ArrayList<>();
+    static {
+        nonOverworldBiomes.add(Biome.Category.NETHER);
+        //nonOverworldBiomes.add(Biome.Category.NETHER_WASTES);
+        nonOverworldBiomes.add(Biome.Category.THEEND);
+        //add any others here as needed
     }
-    public static void CallbackRegisterBiomes()
-    {
-        for (Biome biome : ForgeRegistries.BIOMES)
-            AddSilverOre(biome);
-    }
-}
-// yeah I was looking through past problems in forge fourms and the server
-// this is what I had:
-/*    private static final ArrayList<ConfiguredFeature<?, ?>> overworldOres = new ArrayList<ConfiguredFeature<?, ?>>();
-    private static final ArrayList<ConfiguredFeature<?, ?>> netherOres = new ArrayList<ConfiguredFeature<?, ?>>();
-    private static final ArrayList<ConfiguredFeature<?, ?>> endOres = new ArrayList<ConfiguredFeature<?, ?>>();
 
-    public static void registerOre(){
-        //Overworld Ore Register
-        overworldOres.add(register("silver_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(
+    @SubscribeEvent
+    public static void onBiomeLoading(BiomeLoadingEvent event){
+        if (!nonOverworldBiomes.contains(event.getCategory())){
+        //if (event.getCategory() == Biome.Category.FOREST){
+        event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, MythConfiguredFeatures.SILVER_ORE);
+
+
+    }}}
+
+
+   //Overworld Ore Register
+        /*overworldOres.add(register("silver_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(
                 OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, RegistryHandler.SILVER_ORE.get().getDefaultState(), 5))
-        .range(112).square()// Spawn height start
-        .func_242731_b(155))); // Chunk Spawn frequency
+        .range(112).square().chance(100)));// Spawn height start
+        //.func_242731_b(155))); // Chunk Spawn frequency
 
         //Nether Ore Register
        netherOres.add(register("silver_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(
@@ -72,7 +54,7 @@ public class MythOreGen {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void gen(BiomeLoadingEvent event) {
         BiomeGenerationSettingsBuilder generation = event.getGeneration();
-        if(event.getCategory().equals(Biome.Category.NETHER)){
+        if(event.getCategory().equals(Biome.Category.FOREST)){
             for(ConfiguredFeature<?, ?> ore : netherOres){
                 if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
@@ -90,5 +72,6 @@ public class MythOreGen {
 
     private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
         return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, MythMod.MOD_ID + ":" + name, configuredFeature);
+
     }
 }*/
