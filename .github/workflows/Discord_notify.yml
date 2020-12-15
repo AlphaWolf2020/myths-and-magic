@@ -4,6 +4,6 @@
   uses: fateyan/action-discord-notifier@v1.2.0
   with:
     # A full discord webhook url
-    webhook: 
+    webhook: https://discord.com/api/webhooks/788440186781696001/4L5HK5K0e0T8R0iH8qN2MNWQKYsXelAVO9JF7G6smrg0Inj0ZNBYNw4YGDh3NxVE6_sF
     # Message title
-    message-title: # optional
+    message-title: New release
