@@ -12,12 +12,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class RatRenderer extends MobRenderer<RatEntity, RatModel> {
+public class RatRenderer extends MobRenderer<RatEntity, RatModel<RatEntity>> {
 
     protected static final ResourceLocation TEXTURE = new ResourceLocation(MythMod.MOD_ID, "textures/entity/rat.png");
 
     public RatRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new RatModel(), 0.3F);
+
+        super(renderManagerIn, new RatModel<>(), 0.3F);
     }
 
     @Override

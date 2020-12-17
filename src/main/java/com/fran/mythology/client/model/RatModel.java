@@ -9,7 +9,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class RatModel extends EntityModel<RatEntity> {
+public class RatModel<T extends RatEntity> extends EntityModel<T> {
     private final ModelRenderer bb_main;
     private final ModelRenderer cube_r1;
     private final ModelRenderer cube_r2;
