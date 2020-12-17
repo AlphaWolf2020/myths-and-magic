@@ -1,6 +1,6 @@
 package com.fran.mythology.entities;
 
-import com.fran.mythology.util.MythEntityTypes;
+import com.fran.mythology.util.RegistryHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
@@ -75,6 +75,6 @@ public class RatEntity extends AnimalEntity {
     @Nullable
     @Override
     public AgeableEntity func_241840_a(ServerWorld world, AgeableEntity ageable) {
-        return MythEntityTypes.RAT.get().create(this.world);
+        return RegistryHandler.RAT.get().create(this.world);
     }
 }
