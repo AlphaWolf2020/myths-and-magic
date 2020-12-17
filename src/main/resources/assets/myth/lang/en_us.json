@@ -15,5 +15,6 @@
   "block.myth.silver_block": "Block of Silver",
   "block.myth.silver_ore": "Silver Ore",
   "block.myth.copper_ore": "Copper Ore",
-  "block.myth.copper_block": "Block of Copper"
+  "block.myth.copper_block": "Block of Copper",
+  "entity.myth.rat": "Rat"
 }

@@ -7,7 +7,6 @@ import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -36,9 +35,8 @@ public class MythMod {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        DeferredWorkQueue.runLater(() -> {
-            GlobalEntityTypeAttributes.put(MythEntityTypes.RAT.get(), RatEntity.setCustomAttributes().create());
-        });
+        event.enqueueWork(() ->
+                GlobalEntityTypeAttributes.put(MythEntityTypes.RAT.get(), RatEntity.setCustomAttributes().create()));
     }
 
 

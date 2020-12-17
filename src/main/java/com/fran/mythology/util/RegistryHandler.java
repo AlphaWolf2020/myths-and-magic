@@ -3,11 +3,15 @@ package com.fran.mythology.util;
 import com.fran.mythology.MythMod;
 import com.fran.mythology.armor.MythArmorMaterial;
 import com.fran.mythology.blocks.*;
+import com.fran.mythology.entities.RatEntity;
 import com.fran.mythology.items.ItemBase;
 import com.fran.mythology.tools.MythItemTier;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,9 +23,12 @@ public class RegistryHandler {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MythMod.MOD_ID);
 
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, MythMod.MOD_ID);
+
     public static void init(){
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     }
 
@@ -76,6 +83,9 @@ public class RegistryHandler {
     public static final RegistryObject<Item> COPPER_BLOCK_ITEM = ITEMS.register("copper_block", () -> new BlockItemBase(COPPER_BLOCK.get()));
     public static final RegistryObject<Item> COPPER_ORE_ITEM = ITEMS.register("copper_ore", () -> new BlockItemBase(COPPER_ORE.get()));
 
+
+    //Entity Types
+    public static final RegistryObject<EntityType<RatEntity>> RAT = ENTITY_TYPES.register("rat", () -> EntityType.Builder.create(RatEntity::new, EntityClassification.CREATURE).size(1.5f, 2.5f).build(new ResourceLocation(MythMod.MOD_ID, "rat").toString()));
 
 }
 
